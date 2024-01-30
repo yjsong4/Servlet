@@ -28,8 +28,5 @@
 		</tr>
 	</table>
 	
-	
-	
-	
 </body>
 </html>

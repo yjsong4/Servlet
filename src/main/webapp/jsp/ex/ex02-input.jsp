@@ -13,5 +13,6 @@
 		<label>생년월일 : </label> <input type = "text" name="birthday">
 		<button type="submit">입력</button>
 	</form>
+	
 </body>
 </html>
