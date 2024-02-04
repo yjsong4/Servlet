@@ -11,11 +11,11 @@
 	<form method="post" action="/jsp/test/test05.jsp">
 	
 		<h3>길이 변환</h3>
-		<input type="text" name="centimeter">cm
-		<label>인치<input type="checkbox" name="change"></label>
-		<label>야드<input type="checkbox" name="change"></label>
-		<label>피트<input type="checkbox" name="change"></label>
-		<label>미터<input type="checkbox" name="change"></label>
+		<input type="text" name="length">cm
+		<label>인치<input type="checkbox" name="type"></label>
+		<label>야드<input type="checkbox" name="type"></label>
+		<label>피트<input type="checkbox" name="type"></label>
+		<label>미터<input type="checkbox" name="type"></label>
 		<button type="submit">선택</button>
 
 	</form>

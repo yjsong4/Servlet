@@ -9,14 +9,22 @@
 <body>
 
 	<%
-		int centimeter = Integer.parseInt(request.getParameter("centimeter"));
-		String[] changeArray = request.getParameterValues("change");
+		int centimeter = Integer.parseInt(request.getParameter("length"));
+		String[] types = request.getParameterValues("type");
+	%>
+	
+	<h2>변환 결과</h2>
+	<h3><%=centimeter %>cm</h3>
+	<hr>
+	
+	<%
+		for(int i = 0; i < types.length; i++) {
+			String type = types[i];	
+			
+			
+			
+		}
 		
-		
-		
-		
-		
-		//
 	
 	%>
 
