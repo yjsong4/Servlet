@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+#wrap {
+	width: 800px;
+}
+
+header {
+	height: 50px;
+}
+
+.menu {
+	height: 40px;
+}
+
+footer {
+	height: 70px;
+}
