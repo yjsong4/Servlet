@@ -95,6 +95,8 @@
 						int time = (Integer)detail.get("time");
 						int id = (Integer)detail.get("id");
 						if(id == target) {
+						
+						
 				%>
 				<div class="my-3">
 					<h3>곡 정보</h3>
