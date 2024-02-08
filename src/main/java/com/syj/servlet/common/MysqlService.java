@@ -6,7 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.mysql.cj.protocol.Resultset;
+import java.sql.ResultSet;
+
 
 // Mysql jdbc의 사용과정을 복잡한 코드 구성을 간결하게
 // 메소드로 사용할 수 있도록 정리하는 역할
@@ -51,7 +52,7 @@ public class MysqlService {
 	// select 쿼리 수행
 	public ResultSet select(String query) {
 		
-		Resultset resultSet;
+		ResultSet resultSet;
 		try {
 			resultSet = statement.executeQuery(query);
 			return resultSet;
