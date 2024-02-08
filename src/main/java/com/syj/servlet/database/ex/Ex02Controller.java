@@ -19,7 +19,6 @@ public class Ex02Controller extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 		
-		// Math.round(3.5); 객체를 얻어와서 사용
 		MysqlService mysqlService = MysqlService.getInstance();
 		mysqlService.connect();
 		
