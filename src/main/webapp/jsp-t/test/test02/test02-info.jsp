@@ -79,10 +79,29 @@
 	    musicInfo.put("lyricist", "아이유");
 	    musicList.add(musicInfo);
 	    
-	    int target = Integer.parseInt(request.getParameter("id"));
 	    // target도 스트링으로 바꿔서
 	    String idString = request.getParameter("id");
-	    String title = request.getParameter("title");
+	    String targetTitle = request.getParameter("title");
+	    
+	    Map<String, Object> targetMusic = null;
+	    for(Map<String, Object> music:musicList) {
+	    	if(idString != null) {	// id 파라미터가 전달된 경
+	    		int id = (Integer)music.get("id");
+	    		int targetId = Integer.parseInt(idString);
+	    		if(id == targetId) {
+	    			// 대상 music	 맵 찾음
+	    			targetMusic = music;
+	    		}
+	    	
+	    	} else if(targetTitle != null) {	// title 파라미터가 전달된 경
+	    		String title = (String)music.get("title");
+	    		if(title.equals(targetTitle)) {
+	    			// 대상 music 맵 찾음
+	    			targetMusic = music;
+	    		}
+	    	}
+	    }
+	    int time = (Integer)targetMusic.get("time");
 	%>
 	
 		<div id="wrap">
@@ -90,33 +109,23 @@
 			<jsp:include page="menu.jsp" />
 			
 			<section class="mt-3 ml-3">
-				<% // 반복문 위로 올리기
-					for(Map<String, Object> detail:musicList) {
-						int time = (Integer)detail.get("time");
-						int id = (Integer)detail.get("id");
-						if(id == target) {
-						
-						
-				%>
+				
 				<div class="my-3">
 					<h3>곡 정보</h3>
 					<div class="d-flex border border-success p-3">
 						<div>
-							<img width="200px" height="200px" src="<%= detail.get("thumbnail")%>">
+							<img width="200px" height="200px" src="<%= targetMusic.get("thumbnail")%>">
 						</div>
 						<div class="ml-3">
-							<div class="display-4"><%= detail.get("title")%></div>
-							<div class="text-success font-weight-bold"><%= detail.get("singer")%></div>
+							<div class="display-4"><%= targetMusic.get("title")%></div>
+							<div class="text-success font-weight-bold"><%= targetMusic.get("singer")%></div>
 							<div class=" small text-secondary mt-3">
-								<div>앨범 : <%= detail.get("album")%></div>
+								<div>앨범 : <%= targetMusic.get("album")%></div>
 								<div>재생시간 : <%= time / 60 %>:<%= time % 60 %></div>
-								<div>작곡가 : <%= detail.get("composer")%></div>
-								<div>작사가 : <%= detail.get("lyriclist")%></div>
+								<div>작곡가 : <%= targetMusic.get("composer")%></div>
+								<div>작사가 : <%= targetMusic.get("lyriclist")%></div>
 							</div>
 						</div>
-					<% } 
-					
-					} %>
 					</div>
 				</div>
 				<div>
