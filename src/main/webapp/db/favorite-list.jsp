@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>사이트</title>
+<title>즐겨찾기 목</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 </head>
 <body>
@@ -16,7 +16,6 @@
 		mysqlService.connect();
 		
 		ResultSet resultSet = mysqlService.select("SELECT * FROM `favorite` ORDER BY `id` DESC;");
-	
 	%>
 	
 	<div class="container">
@@ -27,6 +26,7 @@
 				<tr>
 					<th>사이트</th>
 					<th>사이트 주소</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -34,6 +34,7 @@
 				<tr>
 					<td><%= resultSet.getString("name") %></td>
 					<td><a href="<%= resultSet.getString("url") %>"><%= resultSet.getString("url") %></a></td>
+					<td><a class="btn btn-danger btn-sm" href="/db/test/favorite/delete?id=<%= resultSet.getString("id") %>">삭제</a></td>
 				</tr>
 				<% } %>
 			</tbody>

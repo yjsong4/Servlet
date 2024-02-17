@@ -16,32 +16,32 @@
 		MysqlService mysqlService = MysqlService.getInstance();
 		mysqlService.connect();
 		
-		ResultSet resultSet = mysqlService.select("SELECT * FROM `seller`\r\n"
-				+ "				JOIN `used_goods`\r\n"
-				+ "				ON seller.id = used_goods.sellerId\r\n"
-				+ "				ORDER BY seller.id DESC;");
+		ResultSet resultSet = mysqlService.select("SELECT * \r\n"
+				+ "FROM `seller`\r\n"
+				+ "JOIN `used_goods`\r\n"
+				+ "ON seller.id = used_goods.sellerId\r\n"
+				+ "ORDER BY used_goods.id;");
 	%>
 
 	<div id="wrap">
 		<jsp:include page="header.jsp" />
 		<jsp:include page="menu.jsp" />
-		<section class="bg-dark seller">
-		
-			<div class="d-flex flex-wrap align-items-center">
-			<% while(resultSet.next()) { %>
+		<section class="contents">
+			<div class="goods-list d-flex flex-wrap align-items-center">
 			
-				<div class="image">
+			<% while(resultSet.next()) { %>
+				<div class="goods-box">
 					<img width="100%" src="<%= resultSet.getString("used_goods.image") %>">
 					<h5><%= resultSet.getString("used_goods.title") %></h5>
 					<div class="text-secondary small"><%= resultSet.getInt("used_goods.price") %>원</div>
 					<div class="nickname-text"><%= resultSet.getString("seller.nickname") %></div>
 				</div>
-				
 			<% } %>
+			
 			</div>
 	
 		</section>
-	
+		<jsp:include page="footer.jsp" />
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.syj.servlet.common.MysqlService;
 
 @WebServlet("/db/test/favorite/insert")
-public class SiteInsertController extends HttpServlet {
+public class FavoriteInsertController extends HttpServlet {
 	
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -31,5 +31,5 @@ public class SiteInsertController extends HttpServlet {
 		response.sendRedirect("/db/site-list.jsp");
 		
 	}
-
+ 
 }

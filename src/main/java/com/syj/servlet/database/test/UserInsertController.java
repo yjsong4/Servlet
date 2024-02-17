@@ -25,8 +25,6 @@ public class UserInsertController extends HttpServlet {
 				+ "VALUE\r\n"
 				+ "('인스타', 'http://instagram.com');";
 		
-		
-		
 	}
 	
 }

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.syj.servlet.common.MysqlService;
 
 @WebServlet("/db/test/hong/insert")
-public class SellerInsertController extends HttpServlet {
+public class UsedGoodsInsertController extends HttpServlet {
 	
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -27,7 +27,7 @@ public class SellerInsertController extends HttpServlet {
 		String query = "INSERT INTO `used_goods`\r\n"
 				+ "(`sellerId`, `title`, `price`, `description`, `imageUrl`)\r\n"
 				+ "VALUE\r\n"
-				+ "(" + sellerId + ", '" + title +"', " + price + ", '" + description + "');";
+				+ "(" + sellerId + ", '" + title +"', " + price + ", '" + description + "', '" + imageUrl + "');";
 	
 		response.sendRedirect("/db/hong/list.jsp");
 		

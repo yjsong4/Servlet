@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-
 #wrap {
 	width: 800px;
 	margin: 0 auto;
@@ -8,8 +7,27 @@
 
 header {
 	height: 100px;
+	background-color: coral;
 }
 
 .menu {
-	height: 80px;
+	height: 60px;
+	background-color: coral;
+}
+
+.goods-list > .goods-box {
+	padding: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 40px;
+	width: 300px;
+	border: 2px solid coral;
+}
+
+.goods-box > .nickname-text {
+	color: coral;
+}
+
+footer {
+	height: 100px;
 }
